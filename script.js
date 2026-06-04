@@ -66,32 +66,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  // --- Active Navigation Link Scrolling ---
+  // --- Single Page Application Hash Router ---
   const sections = document.querySelectorAll('section');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  window.addEventListener('scroll', () => {
-    let currentSectionId = '';
-    const scrollPos = window.scrollY + 150; // offset for triggers
+  function router() {
+    // Get current hash, default to #about
+    let hash = window.location.hash || '#about';
+    
+    // Validate hash corresponds to an existing section, otherwise fallback to #about
+    let targetSection = document.querySelector(hash);
+    if (!targetSection || targetSection.tagName !== 'SECTION') {
+      hash = '#about';
+      targetSection = document.querySelector(hash);
+    }
 
+    // Toggle active-section class to display the selected section
     sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-
-      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id');
+      if ('#' + section.getAttribute('id') === hash) {
+        section.classList.add('active-section');
+      } else {
+        section.classList.remove('active-section');
       }
     });
 
-    if (currentSectionId) {
-      navLinks.forEach(link => {
+    // Toggle active class on sidebar navigation links
+    navLinks.forEach(link => {
+      if (link.getAttribute('href') === hash) {
+        link.classList.add('active');
+      } else {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSectionId}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-  });
+      }
+    });
+
+    // Reset window scroll position to top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  // Bind to hash changes and initial page load
+  window.addEventListener('hashchange', router);
+  router();
+
 
   // --- Copy to Clipboard Utility ---
   const copyButtons = document.querySelectorAll('.copy-btn[data-clipboard]');

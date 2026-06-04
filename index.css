@@ -344,18 +344,17 @@ body {
 
 /* --- Page / Section styling --- */
 section {
-  margin-bottom: 80px;
+  display: none;
   opacity: 0;
-  transform: translateY(20px);
-  animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(15px);
 }
 
-section:nth-child(1) { animation-delay: 0.1s; }
-section:nth-child(2) { animation-delay: 0.2s; }
-section:nth-child(3) { animation-delay: 0.3s; }
-section:nth-child(4) { animation-delay: 0.4s; }
+section.active-section {
+  display: block;
+  animation: revealSection 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-@keyframes slideUp {
+@keyframes revealSection {
   to {
     opacity: 1;
     transform: translateY(0);
@@ -475,6 +474,7 @@ section:nth-child(4) { animation-delay: 0.4s; }
   margin-bottom: 8px;
   background: linear-gradient(135deg, hsl(var(--accent-primary)), hsl(var(--accent-secondary)));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
