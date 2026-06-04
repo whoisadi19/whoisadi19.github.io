@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Project Filtering System ---
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectCards = document.querySelectorAll('.project-item');
 
   function filterProjects(category) {
     projectCards.forEach(card => {
@@ -141,37 +141,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
-
-  // --- Dynamic Experience Duration Tracker ---
-  const dlDurationContainer = document.getElementById('dl-duration');
-  if (dlDurationContainer) {
-    const startDateStr = dlDurationContainer.getAttribute('data-start');
-    const startDate = new Date(startDateStr);
-
-    function updateDuration() {
-      const now = new Date();
-      const diffTime = Math.abs(now - startDate);
-      
-      const seconds = Math.floor(diffTime / 1000);
-      const minutes = Math.floor(seconds / 60);
-      const hours = Math.floor(minutes / 60);
-      const days = Math.floor(hours / 24);
-      
-      const years = Math.floor(days / 365);
-      const remainingDays = days % 365;
-      const months = Math.floor(remainingDays / 30);
-      const finalDays = remainingDays % 30;
-
-      let durationText = '';
-      if (years > 0) durationText += `${years} yr${years > 1 ? 's' : ''} `;
-      if (months > 0) durationText += `${months} mo${months > 1 ? 's' : ''} `;
-      durationText += `${finalDays} day${finalDays !== 1 ? 's' : ''} active`;
-
-      dlDurationContainer.textContent = `⏱️ Live counter: ${durationText}`;
-    }
-
-    updateDuration();
-    // Update counter daily (every 24h)
-    setInterval(updateDuration, 86400000);
-  }
 });
