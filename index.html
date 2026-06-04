@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Chowdhury | ML & DL Portfolio</title>
+  <meta name="description" content="Portfolio of Aditya Chowdhury (whoisadi19) - Machine Learning & Deep Learning enthusiast focused on implementing algorithms from first principles.">
+  
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Background Decorative Glowing Mesh -->
+  <div class="mesh-gradient"></div>
+
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="avatar-wrapper">
+          <!-- Dynamic loading of real Github Avatar -->
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/221106653?v=4" alt="Aditya Chowdhury Profile Picture">
+        </div>
+        <h1 class="profile-name" id="profile-name">Aditya Chowdhury</h1>
+        <div class="profile-tagline">ML & DL Engineer</div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav>
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="#about" class="nav-link active" id="nav-about">
+              <i class="fa-solid fa-user-astronaut"></i> About Me
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link" id="nav-projects">
+              <i class="fa-solid fa-code-fork"></i> Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#experience" class="nav-link" id="nav-experience">
+              <i class="fa-solid fa-route"></i> Journey
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link" id="nav-contact">
+              <i class="fa-solid fa-paper-plane"></i> Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sidebar Footer Details & Theme switcher -->
+      <div class="sidebar-footer">
+        <div class="social-links">
+          <a href="https://github.com/whoisadi19" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub" id="social-github">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/aditya-chowdhury-ml" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn" id="social-linkedin">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="mailto:adi.chowdhury.dev@gmail.com" class="social-btn" title="Email" id="social-email">
+            <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+
+        <div class="theme-switch-container">
+          <span class="theme-label">
+            <i class="fa-solid fa-circle-half-stroke"></i> Theme
+          </span>
+          <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle dark/light mode">
+            <i class="fa-solid fa-sun" id="theme-icon"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- ABOUT ME SECTION -->
+      <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-hero">
+          <p class="about-intro">
+            I am a <span class="highlight">Machine Learning and Deep Learning enthusiast</span> dedicated to implementing and visualizing core algorithms and research papers from first principles. Rather than relying solely on high-level APIs, I love building gradient descent engines, network layers, and computer vision pipelines from the ground up to master the underlying mathematics.
+          </p>
+          <div class="bio-tags">
+            <span class="bio-tag">Deep Learning</span>
+            <span class="bio-tag">Computer Vision</span>
+            <span class="bio-tag">First-Principles Implementations</span>
+            <span class="bio-tag">Neural Architecture Pruning</span>
+            <span class="bio-tag">Autonomous Systems</span>
+          </div>
+        </div>
+
+        <!-- Dynamic stats grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">GitHub Repos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Project Scales</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">90%</div>
+            <div class="stat-label">Pruning Rates</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">First-Principles</div>
+          </div>
+        </div>
+
+        <!-- Tech Stack section -->
+        <div class="tech-section">
+          <h3 class="tech-group-title"><i class="fa-solid fa-sliders"></i> Tooling & Technologies</h3>
+          <div class="tech-grid">
+            <div class="tech-list">
+              <div class="tech-item">
+                <div class="tech-name-wrapper">
+                  <span>Python (PyTorch, NumPy, Scikit-Learn)</span>
+                  <span>95%</span>
+                </div>
+                <div class="tech-progress-bg">
+                  <div class="tech-progress-fill" data-progress="95%"></div>
+                </div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-name-wrapper">
+                  <span>Computer Vision & OpenCV</span>
+                  <span>85%</span>
+                </div>
+                <div class="tech-progress-bg">
+                  <div class="tech-progress-fill" data-progress="85%"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="tech-list">
+              <div class="tech-item">
+                <div class="tech-name-wrapper">
+                  <span>C & Low-Level Architecture</span>
+                  <span>75%</span>
+                </div>
+                <div class="tech-progress-bg">
+                  <div class="tech-progress-fill" data-progress="75%"></div>
+                </div>
+              </div>
+              <div class="tech-item">
+                <div class="tech-name-wrapper">
+                  <span>JavaScript & TypeScript (GCS/Web Dev)</span>
+                  <span>80%</span>
+                </div>
+                <div class="tech-progress-bg">
+                  <div class="tech-progress-fill" data-progress="80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects">
+        <div class="projects-header">
+          <h2 class="section-title">Projects</h2>
+          <!-- Filtering navigation tabs -->
+          <div class="filter-tabs" role="tablist">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" id="tab-all">All Work</button>
+            <button class="filter-btn" data-filter="serious" role="tab" aria-selected="false" id="tab-serious">Made for Serious</button>
+            <button class="filter-btn" data-filter="hackathon" role="tab" aria-selected="false" id="tab-hackathon">Made for Hackathon</button>
+            <button class="filter-btn" data-filter="fun" role="tab" aria-selected="false" id="tab-fun">Made for Fun</button>
+          </div>
+        </div>
+
+        <div class="projects-grid">
+          
+          <!-- SERIOUS PROJECTS -->
+          <div class="project-card" data-category="serious" id="project-ml-papers">
+            <div>
+              <span class="project-category-tag tag-serious">Serious</span>
+              <h3 class="project-title">ml-papers-concepts</h3>
+              <p class="project-description">
+                Implementing deep learning concepts and research papers from scratch. Includes vectorized regression engines, neural layers, and neural pruning tests (Lottery Ticket Hypothesis implementation achieving 90% parameter pruning).
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">PyTorch</span>
+                <span class="project-tag">NumPy</span>
+                <span class="project-tag">First-Principles</span>
+              </div>
+              <a href="https://github.com/whoisadi19/ml-papers-concepts" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-ml-papers">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="serious" id="project-h-detection">
+            <div>
+              <span class="project-category-tag tag-serious">Serious</span>
+              <h3 class="project-title">H-detection</h3>
+              <p class="project-description">
+                Autonomous target tracking system based on shape and contours. Focuses on identifying and centering landing zones (letter H/helipads) using real-time video frames and geometric vision analysis.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">OpenCV</span>
+                <span class="project-tag">Computer Vision</span>
+              </div>
+              <a href="https://github.com/whoisadi19/H-detection" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-h-detection">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- HACKATHON PROJECTS -->
+          <div class="project-card" data-category="hackathon" id="project-stride">
+            <div>
+              <span class="project-category-tag tag-hackathon">Hackathon</span>
+              <h3 class="project-title">S.T.R.I.D.E</h3>
+              <p class="project-description">
+                Autonomous object detection, mapping, and obstacle avoidance system built for unmanned aerial systems (drones). Integrates critical infrastructure defect inspection models.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">YOLO</span>
+                <span class="project-tag">ROS</span>
+              </div>
+              <a href="https://github.com/whoisadi19/S.T.R.I.D.E" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-stride">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="hackathon" id="project-aether">
+            <div>
+              <span class="project-category-tag tag-hackathon">Hackathon</span>
+              <h3 class="project-title">Aether</h3>
+              <p class="project-description">
+                A drone communication protocol and ground coordination module executing real-time multi-agent flight coordination and autonomous waypoints.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">MAVLink</span>
+                <span class="project-tag">IoT</span>
+              </div>
+              <a href="https://github.com/whoisadi19/Aether" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-aether">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="hackathon" id="project-kairos">
+            <div>
+              <span class="project-category-tag tag-hackathon">Hackathon</span>
+              <h3 class="project-title">Project_Kairos</h3>
+              <p class="project-description">
+                Optimized serverless workflow coordinator built for developer environments during hackathons. Streamlines asset generation pipelines.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">TypeScript</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">APIs</span>
+              </div>
+              <a href="https://github.com/whoisadi19/Project_Kairos" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-kairos">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="hackathon" id="project-resq">
+            <div>
+              <span class="project-category-tag tag-hackathon">Hackathon</span>
+              <h3 class="project-title">ResQ-Mission-Control</h3>
+              <p class="project-description">
+                Emergency search, rescue, and response interface coordinating drone locations, sensor maps, and dispatcher logs in a real-time terminal dashboard.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Sockets</span>
+                <span class="project-tag">Dashboard</span>
+              </div>
+              <a href="https://github.com/whoisadi19/ResQ-Mission-Control" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-resq">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="hackathon" id="project-titanic">
+            <div>
+              <span class="project-category-tag tag-hackathon">Hackathon</span>
+              <h3 class="project-title">Titanic-Kaggle-Ensemble</h3>
+              <p class="project-description">
+                Ensemble prediction workflow evaluating gradient boosting, random forest, and logistic classifiers to maximize prediction performance on survival rates.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Ensemble</span>
+                <span class="project-tag">Pandas</span>
+              </div>
+              <a href="https://github.com/whoisadi19/Titanic-Kaggle-Ensemble" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-titanic">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="hackathon" id="project-gcs">
+            <div>
+              <span class="project-category-tag tag-hackathon">Hackathon</span>
+              <h3 class="project-title">GCS-interface</h3>
+              <p class="project-description">
+                Telemetry dashboard showcasing live visual rendering of autonomous drone parameters, speeds, flight plans, and location charts.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Canvas</span>
+                <span class="project-tag">Telemetry</span>
+              </div>
+              <a href="https://github.com/whoisadi19/GCS-interface" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-gcs">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- FUN PROJECTS -->
+          <div class="project-card" data-category="fun" id="project-tracker">
+            <div>
+              <span class="project-category-tag tag-fun">Fun</span>
+              <h3 class="project-title">SummerTracker</h3>
+              <p class="project-description">
+                Interactive tracker displaying productivity grids, task milestones, and visual graphs logging progress throughout the summer months.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">CSS3</span>
+                <span class="project-tag">HTML5</span>
+              </div>
+              <a href="https://github.com/whoisadi19/SummerTracker" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-tracker">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card" data-category="fun" id="project-obj-det">
+            <div>
+              <span class="project-category-tag tag-fun">Fun</span>
+              <h3 class="project-title">object-detection</h3>
+              <p class="project-description">
+                Lightweight computer vision scripts testing pre-trained weight maps, image cropping, and threshold operations in mock video streams.
+              </p>
+            </div>
+            <div class="project-footer">
+              <div class="project-tags">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">OpenCV</span>
+                <span class="project-tag">Vision</span>
+              </div>
+              <a href="https://github.com/whoisadi19/object-detection" target="_blank" rel="noopener noreferrer" class="project-link" title="View Source Code" id="link-obj-det">
+                <i class="fa-brands fa-github"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- TIMELINE / JOURNEY SECTION -->
+      <section id="experience">
+        <h2 class="section-title">Journey & Highlights</h2>
+        <div class="timeline">
+          
+          <div class="timeline-item active" id="timeline-current">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-role">Deep Learning Research & Projects</span>
+                <span class="timeline-date">Jan 2026 - Present</span>
+              </div>
+              <div class="timeline-company">Independent first-principles workspace</div>
+              <p class="timeline-desc">
+                Focusing on translating key deep learning papers directly into executable libraries. Implementing mathematical layers, optimization algorithms, and network pruning methodologies using PyTorch and NumPy.
+              </p>
+              <div class="experience-duration" id="dl-duration" data-start="2026-01-01T00:00:00"></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-role">Autonomous Systems & Hackathons</span>
+                <span class="timeline-date">Mar 2025 - Dec 2025</span>
+              </div>
+              <div class="timeline-company">STRIDE, ResQ & GCS Telemetry Development</div>
+              <p class="timeline-desc">
+                Engineered autonomous object tracking (letter-H/helipad detection) and drone obstacle avoidance algorithms. Programmed Ground Control Station telemetry dashboards and serverless hackathon utilities.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <span class="timeline-role">Numerical Computation & Classic ML</span>
+                <span class="timeline-date">Dec 2024 - Feb 2025</span>
+              </div>
+              <div class="timeline-company">Housing Price Engines & Ensemble Classifiers</div>
+              <p class="timeline-desc">
+                Constructed vector multivariate linear regression engines from scratch using pure matrix math in NumPy. Programmed tree and gradient boosting classification ensemble pipelines.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-container">
+          
+          <div class="contact-card" id="contact-card-email">
+            <div class="contact-icon">
+              <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div class="contact-title">Email</div>
+            <div class="contact-value" id="email-value">adi.chowdhury.dev@gmail.com</div>
+            <button class="copy-btn" data-clipboard="email-value" id="copy-email">
+              <i class="fa-regular fa-copy"></i> Copy
+            </button>
+          </div>
+
+          <div class="contact-card" id="contact-card-github">
+            <div class="contact-icon">
+              <i class="fa-brands fa-github"></i>
+            </div>
+            <div class="contact-title">GitHub</div>
+            <div class="contact-value">github.com/whoisadi19</div>
+            <a href="https://github.com/whoisadi19" target="_blank" rel="noopener noreferrer" class="copy-btn" id="go-github">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Profile
+            </a>
+          </div>
+
+          <div class="contact-card" id="contact-card-linkedin">
+            <div class="contact-icon">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div class="contact-title">LinkedIn</div>
+            <div class="contact-value">linkedin.com/in/aditya-chowdhury-ml</div>
+            <a href="https://www.linkedin.com/in/aditya-chowdhury-ml" target="_blank" rel="noopener noreferrer" class="copy-btn" id="go-linkedin">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Connect
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Global Footer -->
+      <footer class="footer">
+        <p>&copy; <span id="current-year"></span> Aditya Chowdhury. Designed with glassmorphic aesthetics. Pinned to <a href="https://github.com/whoisadi19/portfoliowebsite" target="_blank" rel="noopener">portfoliowebsite</a>.</p>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <!-- Dynamic logic scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
