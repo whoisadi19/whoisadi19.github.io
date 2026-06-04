@@ -658,16 +658,10 @@ section.active-section {
   border: 1px solid;
 }
 
-.tag-serious {
+.tag-key {
   background-color: hsla(280, 100%, 70%, 0.06);
   border-color: hsl(var(--accent-secondary) / 0.4);
   color: hsl(var(--accent-secondary));
-}
-
-.tag-hackathon {
-  background-color: hsla(180, 100%, 50%, 0.06);
-  border-color: hsl(var(--accent-primary) / 0.4);
-  color: hsl(var(--accent-primary));
 }
 
 .tag-fun {

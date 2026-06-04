@@ -43,27 +43,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
+  function filterProjects(category) {
+    projectCards.forEach(card => {
+      const cardCategory = card.getAttribute('data-category');
+      if (cardCategory === category) {
+        card.classList.remove('hide');
+        card.classList.add('show');
+      } else {
+        card.classList.remove('show');
+        card.classList.add('hide');
+      }
+    });
+  }
+
   filterButtons.forEach(button => {
     button.addEventListener('click', (e) => {
-      // Remove active class from all buttons and add to target
       filterButtons.forEach(btn => btn.classList.remove('active'));
       e.target.classList.add('active');
 
       const filterValue = e.target.getAttribute('data-filter');
-
-      projectCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-
-        if (filterValue === 'all' || cardCategory === filterValue) {
-          card.classList.remove('hide');
-          card.classList.add('show');
-        } else {
-          card.classList.remove('show');
-          card.classList.add('hide');
-        }
-      });
+      filterProjects(filterValue);
     });
   });
+
+  // Initialize with Key Projects active
+  filterProjects('key');
 
 
   // --- Single Page Application Hash Router ---
