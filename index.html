@@ -68,6 +68,11 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="#resume" class="nav-link" id="nav-resume">
+              <i class="fa-solid fa-file-lines"></i> Resume
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#contact" class="nav-link" id="nav-contact">
               <i class="fa-solid fa-paper-plane"></i> Contact
             </a>
@@ -129,6 +134,12 @@
             <span class="bio-tag">Neural Architecture Pruning</span>
             <span class="bio-tag">Autonomous Systems</span>
           </div>
+
+          <!-- Fix 9: GitHub Activity Graph -->
+          <div class="github-graph">
+            <div class="github-graph-label"><i class="fa-brands fa-github"></i> github activity</div>
+            <img src="https://ghchart.rshah.org/b59368/whoisadi19" alt="Aditya Chowdhury's GitHub contribution chart" class="github-graph-img">
+          </div>
         </div>
       </section>
 
@@ -146,72 +157,102 @@
         <div class="projects-list">
           
           <!-- KEY PROJECTS -->
-          <div class="project-item" data-category="key" id="project-ml-papers">
-            <a href="https://github.com/whoisadi19/ml-papers-concepts" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-ml-papers">ml papers in code</a>
+          <div class="project-item" data-category="key" data-repo="ml-papers-concepts" id="project-ml-papers">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/ml-papers-concepts" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-ml-papers">ml papers in code</a>
+              <span class="project-date" id="date-ml-papers"></span>
+            </div>
             <p class="project-item-desc">
               here i implement research papers and deep learning concepts over time. i have solved few papers so far, and will keep track of more as i progress. links to the research papers will be attached as they are completed.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-h-detection">
-            <a href="https://github.com/whoisadi19/H-detection" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-h-detection">h-detection</a>
+          <div class="project-item" data-category="key" data-repo="H-detection" id="project-h-detection">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/H-detection" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-h-detection">h-detection</a>
+              <span class="project-date" id="date-h-detection"></span>
+            </div>
             <p class="project-item-desc">
               autonomous target tracking system based on shape and contours. focuses on identifying and centering landing zones (letter h/helipads) using real-time video frames and geometric vision analysis.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-stride">
-            <a href="https://github.com/whoisadi19/S.T.R.I.D.E" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-stride">stride</a>
+          <div class="project-item" data-category="key" data-repo="S.T.R.I.D.E" id="project-stride">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/S.T.R.I.D.E" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-stride">stride</a>
+              <span class="project-date" id="date-stride"></span>
+            </div>
             <p class="project-item-desc">
               autonomous object detection, mapping, and obstacle avoidance system built for unmanned aerial systems (drones). integrates critical infrastructure defect inspection models.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-aether">
-            <a href="https://github.com/whoisadi19/Aether" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-aether">aether</a>
+          <div class="project-item" data-category="key" data-repo="Aether" id="project-aether">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/Aether" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-aether">aether</a>
+              <span class="project-date" id="date-aether"></span>
+            </div>
             <p class="project-item-desc">
               autonomous ev based project focusing on communication protocols, multi-agent coordination, and real-time obstacle reaction for electric vehicles.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-kairos">
-            <a href="https://github.com/whoisadi19/Project_Kairos" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-kairos">project kairos</a>
+          <div class="project-item" data-category="key" data-repo="Project_Kairos" id="project-kairos">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/Project_Kairos" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-kairos">project kairos</a>
+              <span class="project-date" id="date-kairos"></span>
+            </div>
             <p class="project-item-desc">
               ai-powered drone surveillance for rapid crisis response. features real-time drone video streams via rtsp, intelligent detection using a yolov8s model fine-tuned on aerial datasets, automated triage classifying motionless detections as critical, and geospatial intelligence mapping camera pixel coordinates to real-world tactical maps.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-resq">
-            <a href="https://github.com/whoisadi19/ResQ-Mission-Control" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-resq">resq mission control</a>
+          <div class="project-item" data-category="key" data-repo="ResQ-Mission-Control" id="project-resq">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/ResQ-Mission-Control" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-resq">resq mission control</a>
+              <span class="project-date" id="date-resq"></span>
+            </div>
             <p class="project-item-desc">
               an emergency search, rescue, and response project where significant effort was spent on fine-tuning a custom yolo detection model to track targets from drone streams rather than build standard dashboards, integrating location feeds into a terminal dispatcher interface.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-titanic">
-            <a href="https://github.com/whoisadi19/Titanic-Kaggle-Ensemble" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-titanic">titanic kaggle ensemble</a>
+          <div class="project-item" data-category="key" data-repo="Titanic-Kaggle-Ensemble" id="project-titanic">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/Titanic-Kaggle-Ensemble" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-titanic">titanic kaggle ensemble</a>
+              <span class="project-date" id="date-titanic"></span>
+            </div>
             <p class="project-item-desc">
               ensemble prediction workflow evaluating gradient boosting, random forest, and logistic classifiers to maximize prediction performance on survival rates.
             </p>
           </div>
 
-          <div class="project-item" data-category="key" id="project-gcs">
-            <a href="https://github.com/whoisadi19/GCS-interface" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-gcs">gcs interface</a>
+          <div class="project-item" data-category="key" data-repo="GCS-interface" id="project-gcs">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/GCS-interface" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-gcs">gcs interface</a>
+              <span class="project-date" id="date-gcs"></span>
+            </div>
             <p class="project-item-desc">
               a custom telemetry dashboard similar to mission planner, built for the isro-iroc challenge to showcase live visual rendering of autonomous drone parameters, speeds, flight plans, and location charts.
             </p>
           </div>
 
           <!-- FUN PROJECTS -->
-          <div class="project-item" data-category="fun" id="project-tracker">
-            <a href="https://github.com/whoisadi19/SummerTracker" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-tracker">summertracker</a>
+          <div class="project-item" data-category="fun" data-repo="SummerTracker" id="project-tracker">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/SummerTracker" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-tracker">summertracker</a>
+              <span class="project-date" id="date-tracker"></span>
+            </div>
             <p class="project-item-desc">
               interactive tracker displaying productivity grids, task milestones, and visual graphs logging progress throughout the summer months.
             </p>
           </div>
 
-          <div class="project-item" data-category="fun" id="project-obj-det">
-            <a href="https://github.com/whoisadi19/object-detection" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-obj-det">object-detection</a>
+          <div class="project-item" data-category="fun" data-repo="object-detection" id="project-obj-det">
+            <div class="project-item-header">
+              <a href="https://github.com/whoisadi19/object-detection" target="_blank" rel="noopener noreferrer" class="project-item-title" id="link-obj-det">object-detection</a>
+              <span class="project-date" id="date-obj-det"></span>
+            </div>
             <p class="project-item-desc">
               lightweight computer vision scripts testing pre-trained weight maps, image cropping, and threshold operations in mock video streams.
             </p>
@@ -263,27 +304,72 @@
       <!-- BLOGS SECTION -->
       <section id="blogs">
         <h2 class="section-title">blogs</h2>
+        <p class="blogs-intro">writing about deep learning, first-principles implementations, and research i find interesting. currently drafting — check back soon.</p>
         <div class="blogs-list">
 
           <div class="blog-item">
-            <h3 class="blog-title">building neural networks from scratch: the math behind backpropagation</h3>
+            <div class="blog-item-header">
+              <h3 class="blog-title">building neural networks from scratch: the math behind backpropagation</h3>
+              <span class="blog-badge">coming soon</span>
+            </div>
             <p class="blog-desc">
               a first-principles deep dive into vectorizing gradients, building layer objects, and implementing activation functions using raw numpy.
             </p>
           </div>
 
           <div class="blog-item">
-            <h3 class="blog-title">demystifying the lottery ticket hypothesis</h3>
+            <div class="blog-item-header">
+              <h3 class="blog-title">demystifying the lottery ticket hypothesis</h3>
+              <span class="blog-badge">coming soon</span>
+            </div>
             <p class="blog-desc">
               how we can prune 90% of model parameters while maintaining or improving baseline accuracy, showing my experimental benchmarks and code implementation.
             </p>
           </div>
 
           <div class="blog-item">
-            <h3 class="blog-title">fine-tuning yolov8 on custom drone datasets for target tracking</h3>
+            <div class="blog-item-header">
+              <h3 class="blog-title">fine-tuning yolov8 on custom drone datasets for target tracking</h3>
+              <span class="blog-badge">coming soon</span>
+            </div>
             <p class="blog-desc">
               a step-by-step analysis of training pipelines, dataset curation, and real-time inference latency constraints for drone surveillance.
             </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RESUME SECTION -->
+      <section id="resume">
+        <h2 class="section-title">resume</h2>
+        <p class="resume-intro">Download my resume or full curriculum vitae below. Both are kept up to date.</p>
+        <div class="resume-cards">
+
+          <div class="resume-card" id="resume-card-resume">
+            <div class="resume-card-icon">
+              <i class="fa-solid fa-file-lines"></i>
+            </div>
+            <div class="resume-card-content">
+              <div class="resume-card-title">Resume</div>
+              <div class="resume-card-desc">1-page summary of experience, projects, and skills. Ideal for recruiters and quick reads.</div>
+            </div>
+            <a href="resume.pdf" download class="resume-download-btn" id="btn-download-resume">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
+          </div>
+
+          <div class="resume-card" id="resume-card-cv">
+            <div class="resume-card-icon">
+              <i class="fa-solid fa-file-contract"></i>
+            </div>
+            <div class="resume-card-content">
+              <div class="resume-card-title">Curriculum Vitae</div>
+              <div class="resume-card-desc">Full CV covering all academic work, research, projects, and achievements in detail.</div>
+            </div>
+            <a href="cv.pdf" download class="resume-download-btn" id="btn-download-cv">
+              <i class="fa-solid fa-download"></i> Download
+            </a>
           </div>
 
         </div>

@@ -141,4 +141,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // --- Fix 5: GitHub API Project Dates ---
+  async function fetchProjectDates() {
+    const projectItems = document.querySelectorAll('.project-item[data-repo]');
+    if (!projectItems.length) return;
+
+    try {
+      // Fetch all public repos in one API call
+      const res = await fetch('https://api.github.com/users/whoisadi19/repos?per_page=100');
+      if (!res.ok) return;
+      const repos = await res.json();
+
+      // Build a quick lookup map: repoName -> created_at year
+      const repoDateMap = {};
+      repos.forEach(repo => {
+        const year = new Date(repo.created_at).getFullYear();
+        repoDateMap[repo.name.toLowerCase()] = year;
+      });
+
+      // Inject dates into each project item
+      projectItems.forEach(item => {
+        const repoName = item.getAttribute('data-repo');
+        const dateSpan = item.querySelector('.project-date');
+        if (dateSpan && repoName) {
+          const year = repoDateMap[repoName.toLowerCase()];
+          if (year) {
+            dateSpan.textContent = year;
+          }
+        }
+      });
+    } catch (e) {
+      // Fail silently — dates are a nice-to-have, not critical
+    }
+  }
+
+  fetchProjectDates();
 });

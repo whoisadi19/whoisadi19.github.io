@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Aditya Chowdhury</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-family=%22sans-serif%22 font-size=%2290%22 font-weight=%22800%22 fill=%22%23b59368%22>a.</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: 0 0% 6.5%;
+      --text-primary: 0 0% 92%;
+      --text-secondary: 0 0% 55%;
+      --accent-primary: 36 20% 65%;
+      --border-color: 0 0% 16%;
+      --font-sans: 'Outfit', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: hsl(var(--bg-primary));
+      color: hsl(var(--text-primary));
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 500px;
+    }
+    .logo {
+      font-size: 3rem;
+      font-weight: 800;
+      color: hsl(var(--accent-primary));
+      letter-spacing: -2px;
+      margin-bottom: 40px;
+      display: block;
+      text-decoration: none;
+    }
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: 6rem;
+      font-weight: 700;
+      color: hsl(var(--accent-primary));
+      line-height: 1;
+      margin-bottom: 16px;
+      letter-spacing: -4px;
+    }
+    .error-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: hsl(var(--text-primary));
+      margin-bottom: 12px;
+    }
+    .error-desc {
+      font-size: 0.95rem;
+      color: hsl(var(--text-secondary));
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: hsl(var(--accent-primary));
+      color: hsl(var(--bg-primary));
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .home-btn:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+    .divider {
+      width: 40px;
+      height: 2px;
+      background-color: hsl(var(--accent-primary));
+      margin: 32px auto;
+      border-radius: 2px;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="logo">a.</a>
+    <div class="error-code">404</div>
+    <div class="divider"></div>
+    <h1 class="error-title">Page not found</h1>
+    <p class="error-desc">
+      The page you're looking for doesn't exist or may have been moved.<br>
+      Head back to the homepage.
+    </p>
+    <a href="/" class="home-btn">
+      <i class="fa-solid fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+</body>
+</html>

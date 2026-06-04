@@ -138,14 +138,16 @@ body {
 }
 
 .site-logo {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
   font-family: var(--font-sans);
   color: hsl(var(--accent-primary));
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
   line-height: 1;
   letter-spacing: -2px;
+  border-bottom: 1px solid hsl(var(--border-color));
 }
 
 .avatar-wrapper {
@@ -230,6 +232,22 @@ body {
 .nav-link:hover i, .nav-link.active i {
   color: hsl(var(--accent-primary));
   transform: scale(1.1);
+}
+
+/* Fix 1: Keyboard focus-visible styles */
+.nav-link:focus-visible {
+  outline: 2px solid hsl(var(--accent-primary));
+  outline-offset: 2px;
+}
+
+.social-btn:focus-visible,
+.theme-toggle-btn:focus-visible,
+.filter-btn:focus-visible,
+.copy-btn:focus-visible,
+.project-item-title:focus-visible {
+  outline: 2px solid hsl(var(--accent-primary));
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* Social & Actions in Sidebar */
@@ -690,9 +708,10 @@ section.active-section {
 }
 
 /* --- Contact & Footer --- */
+/* Fix 8: Balanced 2x2 contact grid */
 .contact-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
 
@@ -800,6 +819,192 @@ section.active-section {
   transform: translateX(-50%) translateY(-2px);
 }
 
+/* --- GitHub Activity Graph --- */
+.github-graph {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid hsl(var(--border-color));
+}
+
+.github-graph-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: hsl(var(--text-secondary));
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.github-graph-img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid hsl(var(--border-color));
+  display: block;
+  filter: invert(0);
+  transition: filter 0.3s ease;
+}
+
+[data-theme="light"] .github-graph-img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* --- Project Item Header with Date --- */
+.project-item-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.project-date {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: hsl(var(--text-secondary));
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --- Blog Item Header with Badge --- */
+.blog-item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.blog-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: hsl(var(--accent-primary));
+  border: 1px solid hsl(var(--accent-primary) / 0.4);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+}
+
+.blogs-intro {
+  font-size: 0.95rem;
+  color: hsl(var(--text-secondary));
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* --- Resume Section --- */
+.resume-intro {
+  font-size: 0.95rem;
+  color: hsl(var(--text-secondary));
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.resume-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.resume-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background-color: hsl(var(--bg-glass));
+  border: 1px solid hsl(var(--border-color));
+  border-radius: 20px;
+  padding: 28px 32px;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+}
+
+.resume-card:hover {
+  border-color: hsl(var(--accent-primary) / 0.4);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.resume-card-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background-color: hsl(var(--accent-primary) / 0.08);
+  border: 1px solid hsl(var(--accent-primary) / 0.2);
+  color: hsl(var(--accent-primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  transition: var(--transition-smooth);
+}
+
+.resume-card:hover .resume-card-icon {
+  background-color: hsl(var(--accent-primary));
+  color: hsl(var(--bg-primary));
+}
+
+.resume-card-content {
+  flex: 1;
+}
+
+.resume-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: hsl(var(--text-primary));
+  margin-bottom: 5px;
+}
+
+.resume-card-desc {
+  font-size: 0.88rem;
+  color: hsl(var(--text-secondary));
+  line-height: 1.5;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: hsl(var(--accent-primary));
+  color: hsl(var(--bg-primary));
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 10px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+  border: none;
+  cursor: pointer;
+}
+
+.resume-download-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.resume-download-btn:focus-visible {
+  outline: 2px solid hsl(var(--accent-primary));
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .resume-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px 20px;
+  }
+  .resume-card-content {
+    text-align: center;
+  }
+}
+
 /* Footer Section */
 .footer {
   margin-top: 40px;
@@ -828,6 +1033,7 @@ section.active-section {
   }
 }
 
+/* Fix 2: Mobile sidebar improvements */
 @media (max-width: 768px) {
   .app-container {
     flex-direction: column;
@@ -838,7 +1044,43 @@ section.active-section {
     position: relative;
     border-right: none;
     border-bottom: 1px solid hsl(var(--border-color));
-    padding: 30px 20px;
+    padding: 20px;
+  }
+  .site-logo {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+  }
+  .avatar-wrapper {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 12px;
+  }
+  .profile-name {
+    font-size: 1.2rem;
+  }
+  .profile-tagline {
+    font-size: 0.75rem;
+  }
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 16px 0;
+  }
+  .nav-item {
+    margin-bottom: 0;
+  }
+  .nav-link {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  .sidebar-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
   }
   .main-content {
     margin-left: 0;
@@ -853,5 +1095,8 @@ section.active-section {
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
+  }
+  .contact-container {
+    grid-template-columns: 1fr;
   }
 }
