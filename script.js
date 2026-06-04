@@ -65,35 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Intersection Observer for Tech Progress Bars ---
-  const progressBars = document.querySelectorAll('.tech-progress-fill');
-  const aboutSection = document.getElementById('about');
-
-  if ('IntersectionObserver' in window && progressBars.length > 0) {
-    const observerOptions = {
-      root: null,
-      threshold: 0.25
-    };
-
-    const progressObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          progressBars.forEach(bar => {
-            const targetWidth = bar.getAttribute('data-progress');
-            bar.style.width = targetWidth;
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    progressObserver.observe(aboutSection);
-  } else {
-    // Fallback if IntersectionObserver is not supported
-    progressBars.forEach(bar => {
-      bar.style.width = bar.getAttribute('data-progress');
-    });
-  }
 
   // --- Active Navigation Link Scrolling ---
   const sections = document.querySelectorAll('section');
