@@ -819,38 +819,6 @@ section.active-section {
   transform: translateX(-50%) translateY(-2px);
 }
 
-/* --- GitHub Activity Graph --- */
-.github-graph {
-  margin-top: 30px;
-  padding-top: 25px;
-  border-top: 1px solid hsl(var(--border-color));
-}
-
-.github-graph-label {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: hsl(var(--text-secondary));
-  text-transform: lowercase;
-  letter-spacing: 1px;
-  margin-bottom: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.github-graph-img {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid hsl(var(--border-color));
-  display: block;
-  filter: invert(0);
-  transition: filter 0.3s ease;
-}
-
-[data-theme="light"] .github-graph-img {
-  filter: invert(1) hue-rotate(180deg);
-}
-
 /* --- Project Item Header with Date --- */
 .project-item-header {
   display: flex;
