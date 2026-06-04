@@ -1,6 +1,6 @@
 # Portfolio Website
 
-Personal portfolio website showcasing machine learning, deep learning, computer vision, and autonomous drone projects.
+Personal portfolio website 
 
 ## Technologies
 
