@@ -105,6 +105,42 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // Update document title and Open Graph/Twitter meta tags dynamically based on the current hash
+    let pageTitle = 'Aditya Chowdhury | Personal Website';
+    let pageDesc = 'Personal website of Aditya Chowdhury (whoisadi19).';
+    
+    if (hash === '#blogs' || hash.startsWith('#blog-')) {
+      pageTitle = 'Aditya Chowdhury | Blogs';
+      pageDesc = 'Read blogs by Aditya Chowdhury on machine learning, deep learning, and computer vision.';
+    } else if (hash === '#achievements') {
+      pageTitle = 'Aditya Chowdhury | Achievements';
+      pageDesc = 'Achievements, awards, and certifications of Aditya Chowdhury.';
+    } else if (hash === '#projects') {
+      pageTitle = 'Aditya Chowdhury | Projects';
+      pageDesc = 'Open source projects and research implementations by Aditya Chowdhury.';
+    } else if (hash === '#resume') {
+      pageTitle = 'Aditya Chowdhury | Resume';
+      pageDesc = 'View and download Aditya Chowdhury\'s resume and CV.';
+    } else if (hash === '#contact') {
+      pageTitle = 'Aditya Chowdhury | Contact';
+      pageDesc = 'Get in touch with Aditya Chowdhury via email, LinkedIn, or Twitter.';
+    }
+    
+    document.title = pageTitle;
+    
+    // Dynamically update OG and Twitter title/description tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    const metaDesc = document.querySelector('meta[name="description"]');
+    
+    if (ogTitle) ogTitle.setAttribute('content', pageTitle);
+    if (twTitle) twTitle.setAttribute('content', pageTitle);
+    if (ogDesc) ogDesc.setAttribute('content', pageDesc);
+    if (twDesc) twDesc.setAttribute('content', pageDesc);
+    if (metaDesc) metaDesc.setAttribute('content', pageDesc);
+
     // Reset window scroll position to top
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
