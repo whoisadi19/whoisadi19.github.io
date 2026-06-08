@@ -1,7 +1,7 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
-  "description": "Aditya Chowdhury's ML & DL Portfolio Website",
+  "description": "Aditya Chowdhury's ML & DL Personal Website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

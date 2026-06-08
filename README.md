@@ -1,6 +1,6 @@
-# Portfolio Website
+# Personal Website
 
-Personal portfolio website 
+Personal website 
 
 ## Technologies
 
