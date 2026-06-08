@@ -299,40 +299,330 @@
       <!-- BLOGS SECTION -->
       <section id="blogs">
         <h2 class="section-title">blogs</h2>
-        <p class="blogs-intro">writing about deep learning, first-principles implementations, and research i find interesting. currently drafting — check back soon.</p>
-        <div class="blogs-list">
-
-          <div class="blog-item">
-            <div class="blog-item-header">
-              <h3 class="blog-title">building neural networks from scratch: the math behind backpropagation</h3>
-              <span class="blog-badge">coming soon</span>
+        <p class="blogs-intro">writing about machine learning, deep learning, first-principles implementations, and research i find interesting.</p>
+        
+        <div class="blog-categories">
+          
+          <!-- Category 1: ML (Beginner) -->
+          <div class="blog-category">
+            <h3 class="category-header"><i class="fa-solid fa-graduation-cap"></i> ml (beginner)</h3>
+            <div class="blogs-list">
+              <div class="blog-item">
+                <div class="blog-item-header">
+                  <a href="#blog-intro-to-ml" class="blog-title-link">
+                    <h4 class="blog-title">introduction to machine learning</h4>
+                  </a>
+                  <span class="blog-badge active-badge">read now</span>
+                </div>
+                <p class="blog-meta">june 2026 • 5 min read</p>
+                <p class="blog-desc">
+                  a beginner-friendly introduction to machine learning concepts: what is ml, types of algorithms (supervised vs unsupervised), regression, classification, and clustering with practical examples.
+                </p>
+              </div>
+              
+              <div class="blog-item m-coming-soon">
+                <div class="blog-item-header">
+                  <h4 class="blog-title">linear regression from first principles</h4>
+                  <span class="blog-badge">coming soon</span>
+                </div>
+                <p class="blog-desc">
+                  deriving ordinary least squares, formulating cost functions, and implementing gradient descent in python without frameworks.
+                </p>
+              </div>
             </div>
-            <p class="blog-desc">
-              a first-principles deep dive into vectorizing gradients, building layer objects, and implementing activation functions using raw numpy.
-            </p>
           </div>
 
-          <div class="blog-item">
-            <div class="blog-item-header">
-              <h3 class="blog-title">demystifying the lottery ticket hypothesis</h3>
-              <span class="blog-badge">coming soon</span>
+          <!-- Category 2: Deep Learning & Theory -->
+          <div class="blog-category">
+            <h3 class="category-header"><i class="fa-solid fa-brain"></i> deep learning & theory</h3>
+            <div class="blogs-list">
+              <div class="blog-item m-coming-soon">
+                <div class="blog-item-header">
+                  <h4 class="blog-title">building neural networks from scratch: the math behind backpropagation</h4>
+                  <span class="blog-badge">coming soon</span>
+                </div>
+                <p class="blog-desc">
+                  a first-principles deep dive into vectorizing gradients, building layer objects, and implementing activation functions using raw numpy.
+                </p>
+              </div>
+
+              <div class="blog-item m-coming-soon">
+                <div class="blog-item-header">
+                  <h4 class="blog-title">demystifying the lottery ticket hypothesis</h4>
+                  <span class="blog-badge">coming soon</span>
+                </div>
+                <p class="blog-desc">
+                  how we can prune 90% of model parameters while maintaining or improving baseline accuracy, showing my experimental benchmarks and code implementation.
+                </p>
+              </div>
             </div>
-            <p class="blog-desc">
-              how we can prune 90% of model parameters while maintaining or improving baseline accuracy, showing my experimental benchmarks and code implementation.
-            </p>
           </div>
 
-          <div class="blog-item">
-            <div class="blog-item-header">
-              <h3 class="blog-title">fine-tuning yolov8 on custom drone datasets for target tracking</h3>
-              <span class="blog-badge">coming soon</span>
+          <!-- Category 3: Computer Vision & Autonomous Systems -->
+          <div class="blog-category">
+            <h3 class="category-header"><i class="fa-solid fa-drone"></i> computer vision & autonomous systems</h3>
+            <div class="blogs-list">
+              <div class="blog-item m-coming-soon">
+                <div class="blog-item-header">
+                  <h4 class="blog-title">fine-tuning yolov8 on custom drone datasets for target tracking</h4>
+                  <span class="blog-badge">coming soon</span>
+                </div>
+                <p class="blog-desc">
+                  a step-by-step analysis of training pipelines, dataset curation, and real-time inference latency constraints for drone surveillance.
+                </p>
+              </div>
             </div>
-            <p class="blog-desc">
-              a step-by-step analysis of training pipelines, dataset curation, and real-time inference latency constraints for drone surveillance.
-            </p>
           </div>
 
         </div>
+      </section>
+
+      <!-- BLOG POST: INTRODUCTION TO MACHINE LEARNING -->
+      <section id="blog-intro-to-ml" class="blog-detail-section">
+        <div class="blog-back-nav">
+          <a href="#blogs" class="blog-back-btn">
+            <i class="fa-solid fa-arrow-left"></i> back to blogs
+          </a>
+        </div>
+
+        <article class="blog-article-content">
+          <header class="blog-article-header">
+            <span class="blog-article-category">ml (beginner)</span>
+            <h1 class="blog-article-title">introduction to machine learning</h1>
+            <div class="blog-article-meta">
+              <span class="blog-author">aditya chowdhury</span>
+              <span class="blog-meta-separator">•</span>
+              <span class="blog-date">june 8, 2026</span>
+              <span class="blog-meta-separator">•</span>
+              <span class="blog-read-time">5 min read</span>
+            </div>
+          </header>
+
+          <div class="blog-body">
+            <p>
+              As described by Arthur Samuel, Machine Learning is the <strong>science of getting computers to learn without being explicitly programmed</strong>.
+            </p>
+            
+            <p>
+              To understand this, let's look at Arthur Samuel's checkers program. Arthur himself wasn't that great of a checkers player, but he made a program that watched hundreds of hours of checkers games. By analyzing so many hours of play, the computer learned to differentiate between good and bad positions on the board. Hence, every single time the computer played, it tried to achieve those "good positions."
+            </p>
+
+            <div class="blog-callout">
+              <p><strong>Note on Training Data:</strong> Watching hundreds of hours of games was pivotal. Having too much or too little training data would have resulted in bad predictions. The data used to train an AI model must be:</p>
+              <ul>
+                <li>Large in quantity</li>
+                <li>Good in variety</li>
+              </ul>
+            </div>
+
+            <h3 class="blog-heading">Machine Learning Algorithms</h3>
+            
+            <p>
+              In machine learning, algorithms are like tools we use to solve problems. There are various types of algorithms—various "tools"—and they are extremely powerful. A machine learning engineer just needs to know and understand which tool to use under which situation.
+            </p>
+
+            <p>
+              For simplicity, machine learning algorithms can be divided into three main branches:
+            </p>
+            
+            <div class="blog-branches-container">
+              <div class="blog-branch-card">
+                <strong>Supervised Learning</strong>
+                <p>Learning from labeled data (inputs and correct outputs).</p>
+              </div>
+              <div class="blog-branch-card">
+                <strong>Unsupervised Learning</strong>
+                <p>Finding patterns and structures in unlabeled data.</p>
+              </div>
+              <div class="blog-branch-card">
+                <strong>Reinforcement Learning</strong>
+                <p>Learning through trial and error using rewards and penalties.</p>
+              </div>
+            </div>
+
+            <h3 class="blog-heading">① Supervised Learning</h3>
+            
+            <p>
+              In Supervised Learning (SL), the machine learns from given "right answers." By analogy, it is like a student studying questions and answers provided by a teacher.
+            </p>
+            
+            <p>
+              The student learns from the given question (denoted as $x$) and its corresponding answer (denoted as $y$). When the student is tested, the teacher asks questions similar to the ones taught in class, and the student tries to predict reasonably close answers.
+            </p>
+            
+            <p>
+              In the real world, almost all major commercial use cases of machine learning fall under Supervised Learning, making it an essential foundation:
+            </p>
+
+            <ul class="blog-list-styled">
+              <li><strong>Visual Inspection:</strong> Classifying factory products based on quality parameters.</li>
+              <li><strong>Spam Classifier:</strong> Predicting whether an email or phone call is spam based on historical records.</li>
+              <li><strong>Speech Recognition:</strong> Mapping voice-enabled audio commands to text actions.</li>
+              <li><strong>Machine Translation:</strong> Translating text or speech between different languages.</li>
+              <li><strong>Self-driving Vehicles:</strong> Utilizing Convolutional Neural Networks (CNNs) and computer vision to navigate roads.</li>
+            </ul>
+
+            <p>
+              In short, in Supervised Learning:
+            </p>
+            <ol class="blog-steps-styled">
+              <li>The machine learns from input $x$ and its corresponding correct output $y$.</li>
+              <li>It builds a model to predict output $y$ from new, unseen inputs $x$.</li>
+            </ol>
+
+            <p>
+              There are two primary types of algorithms used in Supervised Learning: <strong>Regression</strong> and <strong>Classification</strong>.
+            </p>
+
+            <h4 class="blog-subheading">Regression</h4>
+            
+            <p>
+              Regression is used when we want to predict a continuous numerical value (from infinitely many possibilities).
+            </p>
+            
+            <p>
+              A popular example is predicting house prices based on the area (square footage) of the house. To keep things simple, we'll predict the price using just this single feature. Say we collect data of house prices and their sizes, and plot them:
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/image1.png" alt="House Price vs Area — Regression Example">
+              <figcaption>Fig 1: House Price vs Area — Regression Example (values in multiples of $1,000)</figcaption>
+            </figure>
+
+            <div class="blog-callout">
+              <p><strong>Key Terms:</strong></p>
+              <ul>
+                <li><strong>Feature ($x$):</strong> The input value fed to the model (e.g. Area in Sq. Feet).</li>
+                <li><strong>Target ($y$):</strong> The correct output value we want to predict (e.g. Price).</li>
+                <li>A data point is represented as $(x, y)$, such as $(100, 185)$ representing a 100 sq. feet area with a price of $185,000.</li>
+              </ul>
+            </div>
+
+            <p>
+              In regression, we try to predict a number by fitting a line that fits the data points in our graph the best. Using this line, we can estimate prices for houses that were not in our survey. For example, we can mathematically determine what the price of a 500 sq. feet house would be by finding the corresponding $y$ value on the line for $x = 500$.
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/image2.png" alt="Regression Model Fitting Lines">
+              <figcaption>Fig 2: Fitting multiple types of model lines (linear, curved, etc.) to regression data</figcaption>
+            </figure>
+
+            <h4 class="blog-subheading">Classification</h4>
+            
+            <p>
+              Unlike regression which predicts numerical values, Classification predicts discrete categories. For example: Is a photo of a dog or a cat? Is a tumor malignant (cancerous) or benign (non-cancerous)?
+            </p>
+            
+            <p>
+              Let's look at the tumor classification problem. Suppose we have the following training data, where a diagnosis of 1 represents malignant and 0 represents benign:
+            </p>
+
+            <div class="blog-table-wrapper">
+              <table class="blog-table">
+                <thead>
+                  <tr>
+                    <th>Size (mm)</th>
+                    <th>Diagnosis (Target $y$)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2</td>
+                    <td>0 (Benign)</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>1 (Malignant)</td>
+                  </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>0 (Benign)</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>1 (Malignant)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>We can plot this 1-dimensional dataset as follows:</p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/image3.png" alt="1D Classification — Tumor Size">
+              <figcaption>Fig 3: 1D Classification — Tumor Size (O = Benign, X = Malignant)</figcaption>
+            </figure>
+
+            <p>
+              While classification outputs are discrete (e.g., 0 or 1), the model can take multiple inputs. For instance, we can add the patient's age as a second input feature, turning it into a 2D classification problem:
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/image4.png" alt="2D Classification — Age vs Tumor Size">
+              <figcaption>Fig 4: 2D Classification — Age vs Tumor Size</figcaption>
+            </figure>
+
+            <p>
+              As seen in the graph, as patient age and tumor size increase, the likelihood of a malignant diagnosis increases. To make predictions on a new patient (Patient 'A'), the classification model draws a decision boundary (the line shown). Everything to the right of the line is predicted to be malignant (1), and everything to the left is benign (0). For Patient 'A', they fall to the left, meaning they are predicted to have a benign (non-cancerous) tumor.
+            </p>
+
+            <h3 class="blog-heading">② Unsupervised Learning (USL)</h3>
+            
+            <p>
+              While Supervised Learning requires labeled data (correct answers), Unsupervised Learning works with unlabeled data. The algorithms only receive input features $x$, and are forced to find patterns and structures in the data on their own without any predefined target $y$.
+            </p>
+            
+            <p>
+              A major method in Unsupervised Learning is <strong>Clustering</strong>, which groups similar data points together.
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/image5.png" alt="Unsupervised Clustering">
+              <figcaption>Fig 5: Unsupervised Clustering — data grouped by similarity without pre-existing labels</figcaption>
+            </figure>
+
+            <div class="blog-callout">
+              <p><strong>Key Concept:</strong> We do not tell the algorithm how to group the data or what each group represents. It discovers the groupings automatically by finding mathematical similarities between features.</p>
+            </div>
+
+            <p>
+              Here is a real-world analogy from Andrew Ng's Machine Learning course. If we analyze a dataset of students taking a course on a platform, and run a clustering algorithm, it might group them into clusters like:
+            </p>
+
+            <ul class="blog-list-styled">
+              <li><strong>Career Starters:</strong> Students taking the course to get a better job or earn more.</li>
+              <li><strong>Professionals:</strong> People taking it to advance their career or get a promotion.</li>
+              <li><strong>Researchers:</strong> Academics taking the course to build an in-depth understanding.</li>
+              <li><strong>Explorers:</strong> People taking it simply for the love of the game, because they are new to ML and find it cool! (That's me!)</li>
+            </ul>
+
+            <p>
+              It is then up to the person analyzing the output to decide what each cluster represents.
+            </p>
+
+            <h3 class="blog-heading">Outro</h3>
+            
+            <p>
+              Thanks for reading the first edition of my machine learning notes! In the next post, we will dive deeper and look at the mathematical formulations of Linear Regression. See you then!
+            </p>
+          </div>
+
+          <footer class="blog-article-footer">
+            <div class="blog-author-card">
+              <img class="author-avatar" src="https://avatars.githubusercontent.com/u/221106653?v=4" alt="Aditya Chowdhury">
+              <div class="author-info">
+                <span class="author-name">Written by Aditya Chowdhury</span>
+                <span class="author-bio">Exploring ML, building drones, undergrad student in Computer Science.</span>
+              </div>
+            </div>
+            
+            <div class="blog-footer-nav">
+              <a href="#blogs" class="blog-back-btn">
+                <i class="fa-solid fa-arrow-left"></i> back to blogs
+              </a>
+            </div>
+          </footer>
+        </article>
       </section>
 
       <!-- RESUME SECTION -->

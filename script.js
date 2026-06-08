@@ -96,7 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Toggle active class on sidebar navigation links
     navLinks.forEach(link => {
-      if (link.getAttribute('href') === hash) {
+      const href = link.getAttribute('href');
+      const isActive = (href === hash) || (hash.startsWith('#blog-') && href === '#blogs');
+      if (isActive) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
