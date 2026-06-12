@@ -319,6 +319,18 @@
                   a beginner-friendly introduction to machine learning concepts: what is ml, types of algorithms (supervised vs unsupervised), regression, classification, and clustering with practical examples.
                 </p>
               </div>
+              <div class="blog-item">
+                <div class="blog-item-header">
+                  <a href="#blog-linear-regression-gradient-descent" class="blog-title-link">
+                    <h4 class="blog-title">linear regression & gradient descent</h4>
+                  </a>
+                  <span class="blog-badge active-badge">read now</span>
+                </div>
+                <p class="blog-meta">june 2026 • 10 min read</p>
+                <p class="blog-desc">
+                  delve into univariate linear regression, cost function formulation, mathematical derivation of gradient descent updates, simultaneous updates vs. common mistakes, and step-by-step python implementation from scratch.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -556,6 +568,514 @@
           </div>
 
           <footer class="blog-article-footer">
+            <div class="blog-footer-nav">
+              <a href="#blogs" class="blog-back-btn">
+                <i class="fa-solid fa-arrow-left"></i> back to blogs
+              </a>
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      <!-- BLOG POST: LINEAR REGRESSION & GRADIENT DESCENT -->
+      <section id="blog-linear-regression-gradient-descent" class="blog-detail-section">
+        <div class="blog-back-nav">
+          <a href="#blogs" class="blog-back-btn">
+            <i class="fa-solid fa-arrow-left"></i> back to blogs
+          </a>
+        </div>
+
+        <article class="blog-article-content">
+          <header class="blog-article-header">
+            <span class="blog-article-category">ml (beginner)</span>
+            <h1 class="blog-article-title">linear regression & gradient descent</h1>
+            <div class="blog-article-meta">
+              <span class="blog-author">aditya chowdhury</span>
+              <span class="blog-meta-separator">•</span>
+              <span class="blog-date">june 12, 2026</span>
+              <span class="blog-meta-separator">•</span>
+              <span class="blog-read-time">10 min read</span>
+            </div>
+          </header>
+
+          <div class="blog-body">
+            <p>
+              In our previous introduction to machine learning, we saw that algorithms are the mathematical tools used to solve predictive problems. In this edition, we will build our first actual model from scratch. We will explore the details of <strong>Univariate Linear Regression</strong>, define how we measure its error using a <strong>Cost Function</strong>, mathematically derive the updates for <strong>Gradient Descent</strong>, and write a complete Python implementation.
+            </p>
+
+            <h3 class="blog-heading">Terminology</h3>
+            <p>
+              Before diving into the math, let's establish the standard terminology used in supervised learning:
+            </p>
+            <ul class="blog-list-styled">
+              <li><strong>Training Set:</strong> The dataset used to train and optimize the model.</li>
+              <li><strong>Input (<i>x</i>):</strong> The input feature fed into the model (e.g., house size).</li>
+              <li><strong>Output (<i>y</i>):</strong> The target variable or correct output we want to predict (e.g., house price).</li>
+              <li><strong>Prediction (<i>ŷ</i>):</strong> The output estimated by our model (pronounced "y-hat").</li>
+              <li><strong>Number of Examples (<i>m</i>):</strong> The total number of training examples in our dataset.</li>
+              <li><strong>Single Data Point (<i>x</i>, <i>y</i>):</strong> A single row in our training dataset.</li>
+              <li><strong>i<sup>th</sup> Example (<i>x</i><sup>(<i>i</i>)</sup>, <i>y</i><sup>(<i>i</i>)</sup>):</strong> The specific training example at index <i>i</i> (where <i>i</i> represents the row index, not exponentiation).</li>
+            </ul>
+
+            <h3 class="blog-heading">Training Flow</h3>
+            <p>
+              In supervised learning, the training workflow forms a feedback loop. We feed our training set into the learning algorithm, which computes optimal parameters to produce a model, denoted as the function <i>f</i>. When we pass a new input feature <i>x</i> to this model <i>f</i>, it yields an estimated output prediction <i>ŷ</i>:
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/week2_image1.png" alt="Supervised Learning Training Workflow">
+              <figcaption>Fig 1: Supervised Learning training flow — from training set to learning algorithm to model f to prediction ŷ</figcaption>
+            </figure>
+
+            <p>
+              For example, in housing price prediction, the size of a house is passed into our learned model <i>f</i>, which calculates the predicted price:
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/week2_image2.png" alt="Housing Pricing Prediction Function">
+              <figcaption>Fig 2: House Size (x) passed to model f to estimate the predicted Price (ŷ)</figcaption>
+            </figure>
+
+            <h3 class="blog-heading">univariate linear regression</h3>
+            <p>
+              To find the function <i>f</i>, we must choose a model structure. Since we are dealing with a single variable (univariate), we can model the relationship as a straight line:
+            </p>
+            
+            <div class="math-block">
+              <i>f</i><sub><i>w,b</i></sub>(<i>x</i>) = <i>wx</i> + <i>b</i>
+            </div>
+
+            <p>
+              In this formulation:
+            </p>
+            <ul class="blog-list-styled">
+              <li><strong><i>w</i> (weight):</strong> The slope of the line, determining the angle of the fit.</li>
+              <li><strong><i>b</i> (bias):</strong> The y-intercept, determining the vertical position of the line.</li>
+            </ul>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/week2_image3.png" alt="Univariate Linear Regression Model line">
+              <figcaption>Fig 3: Visual representation of a Univariate Linear Regression line fitting training data</figcaption>
+            </figure>
+
+            <p>
+              Our ultimate objective is to optimize the values of the parameters <i>w</i> and <i>b</i> so that the line fits our training data points as closely as possible.
+            </p>
+
+            <h3 class="blog-heading">cost function</h3>
+            <p>
+              To optimize <i>w</i> and <i>b</i>, we need a mathematical way to measure how well a given line fits our dataset. We do this by calculating the error or inaccuracy of the model using a <strong>Cost Function</strong> (also known as the Squared Error Cost Function).
+            </p>
+            <p>
+              The cost function, denoted as <i>J</i>(<i>w</i>,<i>b</i>), is calculated as:
+            </p>
+
+            <div class="math-block">
+              <i>J</i>(<i>w</i>,<i>b</i>) = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator">2<i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              ( <i>ŷ</i><sup>(<i>i</i>)</sup> - <i>y</i><sup>(<i>i</i>)</sup> )<sup>2</sup>
+            </div>
+
+            <p>
+              Since <i>ŷ</i><sup>(<i>i</i>)</sup> = <i>f</i><sub><i>w,b</i></sub>(<i>x</i><sup>(<i>i</i>)</sup>) = <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i>, we can expand it as:
+            </p>
+
+            <div class="math-block">
+              <i>J</i>(<i>w</i>,<i>b</i>) = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator">2<i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              ( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> )<sup>2</sup>
+            </div>
+
+            <div class="blog-callout">
+              <p><strong>Why divide by 2m?</strong></p>
+              <p>
+                We divide by the number of examples <i>m</i> to compute the average squared error. The extra division by 2 is a mathematical convenience that cancels out the exponent 2 when we take the derivative during gradient descent updates.
+              </p>
+            </div>
+
+            <p>
+              Our learning goal is simple: find parameters <i>w</i> and <i>b</i> that <strong>minimize</strong> the cost function <i>J</i>(<i>w</i>,<i>b</i>).
+            </p>
+
+            <h3 class="blog-heading">gradient descent</h3>
+            <p>
+              <strong>Gradient Descent</strong> is an iterative optimization algorithm used to find the minimum of any function. We use it to find the parameters <i>w</i> and <i>b</i> that yield the lowest possible cost <i>J</i>.
+            </p>
+            <p>
+              The algorithm follows these steps:
+            </p>
+            <ol class="blog-steps-styled">
+              <li>Initialize parameters with some starting values (e.g., <i>w</i> = 0, <i>b</i> = 0).</li>
+              <li>Compute the gradients (steepness and direction of the slope) at the current point.</li>
+              <li>Tweak the parameters by stepping in the direction of the steepest descent (downhill).</li>
+              <li>Repeat until the gradients approach zero, which indicates we have reached the bottom (convergence).</li>
+            </ol>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/week2_image4.png" alt="Gradient Descent Cost Terrain">
+              <figcaption>Fig 4: Gradient descent terrain highlighting starting points, paths of descent, local minima, and global minima</figcaption>
+            </figure>
+
+            <p>
+              Unlike generic cost functions that may contain multiple local minima (as shown in Fig 4), the squared error cost function for linear regression is a <strong>convex function</strong>. This means it has a bowl-like shape with exactly <strong>one global minimum</strong> and no local minima, ensuring that gradient descent will always converge to the global optimal solution if the learning rate is set correctly.
+            </p>
+
+            <h4 class="blog-subheading">The Update Formulas</h4>
+            <p>
+              Mathematically, we update parameters <i>w</i> and <i>b</i> at each iteration using the assignment operation (<span class="math-inline">&larr;</span>):
+            </p>
+
+            <div class="math-block">
+              <i>w</i> &larr; <i>w</i> - &alpha;
+              <div class="math-fraction">
+                <span class="math-numerator">&part;</span>
+                <span class="math-denominator">&part;<i>w</i></span>
+              </div>
+              <i>J</i>(<i>w</i>,<i>b</i>)
+            </div>
+
+            <div class="math-block">
+              <i>b</i> &larr; <i>b</i> - &alpha;
+              <div class="math-fraction">
+                <span class="math-numerator">&part;</span>
+                <span class="math-denominator">&part;<i>b</i></span>
+              </div>
+              <i>J</i>(<i>w</i>,<i>b</i>)
+            </div>
+
+            <p>
+              In these formulas:
+            </p>
+            <ul class="blog-list-styled">
+              <li><strong>&alpha; (learning rate):</strong> Controls the size of the step we take downhill. If &alpha; is too small, descent is extremely slow. If &alpha; is too large, we can overshoot the minimum, cause the cost to fluctuate, or even diverge.</li>
+              <li><strong>Partial Derivatives (<span class="math-inline">&part;J/&part;w</span> and <span class="math-inline">&part;J/&part;b</span>):</strong> Determine the slope and the exact direction to step. A positive slope moves the parameter to the left (decreases it), and a negative slope moves it to the right (increases it).</li>
+            </ul>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/week2_image5.png" alt="Direction of Descent for Slopes">
+              <figcaption>Fig 5: Direction of parameter updates for positive slope (decreases w) vs negative slope (increases w)</figcaption>
+            </figure>
+
+            <h4 class="blog-subheading">Simultaneous Updates vs. Common Mistakes</h4>
+            <p>
+              A crucial aspect of gradient descent is that <strong>both parameters must be updated simultaneously</strong> in each iteration. This means we calculate the updates for both parameters first using the current values, and only then apply the updates.
+            </p>
+
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python (correct)</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-correct"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-correct" class="blog-code"># Correct simultaneous update implementation
+temp_w = w - alpha * dJ_dw
+temp_b = b - alpha * dJ_db
+w = temp_w
+b = temp_b</code></pre>
+            </div>
+
+            <p>
+              A common mistake is updating the parameters sequentially. If you update <i>w</i> first, the subsequent calculation for <i>b</i> will use the newly updated <i>w</i> instead of the original <i>w</i>, causing gradient descent to follow an incorrect path:
+            </p>
+
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python (incorrect)</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-incorrect"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-incorrect" class="blog-code"># Incorrect sequential update implementation
+temp_w = w - alpha * dJ_dw
+w = temp_w                                # Updates w prematurely!
+temp_b = b - alpha * dJ_db_using_new_w    # Computed using the updated w!
+b = temp_b</code></pre>
+            </div>
+
+            <h4 class="blog-subheading">Fixed Learning Rate Step Adjustment</h4>
+            <p>
+              You do not need to decrease the learning rate &alpha; as gradient descent approaches the minimum. Because the derivative term represents the slope, and the slope becomes flatter near a local or global minimum, the gradient step sizes automatically shrink as we approach convergence.
+            </p>
+
+            <figure class="blog-figure">
+              <img src="Blogs/assets/week2_image6.png" alt="Fixed alpha step size behavior">
+              <figcaption>Fig 6: With a fixed learning rate α, update steps automatically shrink as the slope flattens near the minimum</figcaption>
+            </figure>
+
+            <h3 class="blog-heading">mathematical derivation</h3>
+            <p>
+              To write code for gradient descent, we need to solve the partial derivatives of the cost function. Let's derive them step-by-step.
+            </p>
+
+            <h4 class="blog-subheading">① Derivative with respect to w</h4>
+            <p>
+              Starting with the cost function:
+            </p>
+            <div class="math-block">
+              <i>J</i>(<i>w</i>,<i>b</i>) = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator">2<i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              ( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> )<sup>2</sup>
+            </div>
+
+            <p>
+              We differentiate with respect to <i>w</i> using the power rule and chain rule:
+            </p>
+            <div class="math-block">
+              <div class="math-fraction">
+                <span class="math-numerator">&part;<i>J</i>(<i>w</i>,<i>b</i>)</span>
+                <span class="math-denominator">&part;<i>w</i></span>
+              </div>
+              = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator">2<i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              2( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> ) &bull; 
+              <div class="math-fraction">
+                <span class="math-numerator">&part;</span>
+                <span class="math-denominator">&part;<i>w</i></span>
+              </div>
+              ( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> )
+            </div>
+
+            <p>
+              Since the derivative of <span class="math-inline">( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> )</span> with respect to <i>w</i> is simply <span class="math-inline"><i>x</i><sup>(<i>i</i>)</sup></span>, the factor of 2 cancels out and we get:
+            </p>
+            <div class="math-block">
+              <div class="math-fraction">
+                <span class="math-numerator">&part;<i>J</i>(<i>w</i>,<i>b</i>)</span>
+                <span class="math-denominator">&part;<i>w</i></span>
+              </div>
+              = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator"><i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              ( <i>f</i><sub><i>w,b</i></sub>(<i>x</i><sup>(<i>i</i>)</sup>) - <i>y</i><sup>(<i>i</i>)</sup> ) <i>x</i><sup>(<i>i</i>)</sup>
+            </div>
+
+            <h4 class="blog-subheading">② Derivative with respect to b</h4>
+            <p>
+              Similarly, we differentiate the cost function with respect to <i>b</i>:
+            </p>
+            <div class="math-block">
+              <div class="math-fraction">
+                <span class="math-numerator">&part;<i>J</i>(<i>w</i>,<i>b</i>)</span>
+                <span class="math-denominator">&part;<i>b</i></span>
+              </div>
+              = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator">2<i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              2( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> ) &bull; 
+              <div class="math-fraction">
+                <span class="math-numerator">&part;</span>
+                <span class="math-denominator">&part;<i>b</i></span>
+              </div>
+              ( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> )
+            </div>
+
+            <p>
+              Since the derivative of <span class="math-inline">( <i>wx</i><sup>(<i>i</i>)</sup> + <i>b</i> - <i>y</i><sup>(<i>i</i>)</sup> )</span> with respect to <i>b</i> is 1, the 2 cancels out and we get:
+            </p>
+            <div class="math-block">
+              <div class="math-fraction">
+                <span class="math-numerator">&part;<i>J</i>(<i>w</i>,<i>b</i>)</span>
+                <span class="math-denominator">&part;<i>b</i></span>
+              </div>
+              = 
+              <div class="math-fraction">
+                <span class="math-numerator">1</span>
+                <span class="math-denominator"><i>m</i></span>
+              </div>
+              <span class="math-sum">&sum;</span>
+              <span class="math-subsup">
+                <span class="sup"><i>m</i></span>
+                <span class="sub"><i>i</i>=1</span>
+              </span>
+              ( <i>f</i><sub><i>w,b</i></sub>(<i>x</i><sup>(<i>i</i>)</sup>) - <i>y</i><sup>(<i>i</i>)</sup> )
+            </div>
+
+            <h3 class="blog-heading">gradient descent variations</h3>
+            <p>
+              Depending on how much data we process at each update step, gradient descent is categorized into three variations:
+            </p>
+            <ul class="blog-list-styled">
+              <li><strong>Batch Gradient Descent:</strong> Computes the gradients using the <i>entire</i> training dataset (all <i>m</i> examples) in each step. This leads to stable convergence but can be computationally expensive for large datasets.</li>
+              <li><strong>Mini-batch Gradient Descent:</strong> Divides the training set into small subsets (e.g., 32, 64, or 128 examples). Gradients are computed and parameters updated for each mini-batch, offering a balance between speed and convergence stability.</li>
+              <li><strong>Stochastic Gradient Descent (SGD):</strong> Updates parameters using only a <i>single</i> random training example at a time. It is extremely fast but the updates can be noisy and fluctuate.</li>
+            </ul>
+
+            <h3 class="blog-heading">coding linear regression</h3>
+            <p>
+              Now we can bring everything together in Python. We will write the implementation of computing the cost, computing the gradients, and executing gradient descent from first principles.
+            </p>
+
+            <h4 class="blog-subheading">① Setup and Libraries</h4>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-imports"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-imports" class="blog-code">import math
+import copy
+import numpy as np
+import matplotlib.pyplot as plt</code></pre>
+            </div>
+
+            <h4 class="blog-subheading">② Training Dataset</h4>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-dataset"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-dataset" class="blog-code"># Features (house size in 1000s of sq feet) and Targets (price in $1000s)
+x_train = np.array([1.0, 2.0])
+y_train = np.array([300.0, 500.0])</code></pre>
+            </div>
+
+            <h4 class="blog-subheading">③ Computing Cost</h4>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-cost"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-cost" class="blog-code">def compute_cost(x, y, w, b):
+    m = x.shape[0]
+    cost = 0
+    
+    for i in range(m):
+        f_wb = w * x[i] + b
+        cost = cost + (f_wb - y[i])**2
+        
+    total_cost = (1 / (2 * m)) * cost
+    return total_cost</code></pre>
+            </div>
+
+            <h4 class="blog-subheading">④ Computing Gradients</h4>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-gradient"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-gradient" class="blog-code">def compute_gradient(x, y, w, b):
+    m = x.shape[0]
+    dJ_dw = 0
+    dJ_db = 0
+    
+    for i in range(m):
+        f_wb = w * x[i] + b
+        dJ_dw_i = (f_wb - y[i]) * x[i]
+        dJ_db_i = (f_wb - y[i])
+        dJ_dw = dJ_dw + dJ_dw_i
+        dJ_db = dJ_db + dJ_db_i
+        
+    dJ_dw = dJ_dw / m
+    dJ_db = dJ_db / m
+    
+    return dJ_dw, dJ_db</code></pre>
+            </div>
+
+            <h4 class="blog-subheading">⑤ Gradient Descent Loop</h4>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-gradient-descent"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-gradient-descent" class="blog-code">def gradient_descent(x, y, w_in, b_in, alpha, num_iters, cost_function, gradient_function):
+    J_history = []
+    P_history = []
+    b = b_in
+    w = w_in
+    
+    for i in range(num_iters):
+        # Calculate gradients
+        dJ_dw, dJ_db = gradient_function(x, y, w, b)
+        
+        # Simultaneous parameters updates
+        b = b - alpha * dJ_db
+        w = w - alpha * dJ_dw
+        
+        # Save cost history
+        if i &lt; 100000:
+            J_history.append(cost_function(x, y, w, b))
+            P_history.append([w, b])
+            
+    return w, b, J_history, P_history</code></pre>
+            </div>
+
+            <h4 class="blog-subheading">⑥ Running the Model</h4>
+            <div class="code-block-wrapper">
+              <div class="code-block-header">
+                <span class="code-block-lang">python</span>
+                <button class="copy-btn copy-code-btn" data-clipboard="code-run"><i class="fa-regular fa-copy"></i> copy</button>
+              </div>
+              <pre class="blog-pre"><code id="code-run" class="blog-code"># Initialize parameters
+w_init = 0
+b_init = 0
+iterations = 10000
+tmp_alpha = 1.0e-2
+
+# Run gradient descent
+w_final, b_final, J_hist, P_hist = gradient_descent(
+    x_train, y_train, w_init, b_init, tmp_alpha, 
+    iterations, compute_cost, compute_gradient
+)
+
+print(f"w_final: {w_final:0.4f}, b_final: {b_final:0.4f}")</code></pre>
+            </div>
+
+            <h3 class="blog-heading">Outro</h3>
+            <p>
+              Linear Regression & Gradient Descent complete! By understanding how we measure errors and step down slopes, we have built the mathematical engine of learning. In the next post, we will explore Multiple Linear Regression, vectorization, and feature scaling. See you then!
+            </p>
+          </div>
+
+          <footer class="blog-article-footer">
+            <div class="blog-author-card">
+              <img class="author-avatar" src="https://avatars.githubusercontent.com/u/221106653?v=4" alt="Aditya Chowdhury">
+              <div class="author-info">
+                <span class="author-name">Aditya Chowdhury</span>
+                <span class="author-bio">CS undergrad exploring ML and DL from first principles. Writing clean code and building drones.</span>
+              </div>
+            </div>
             <div class="blog-footer-nav">
               <a href="#blogs" class="blog-back-btn">
                 <i class="fa-solid fa-arrow-left"></i> back to blogs
